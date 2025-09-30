@@ -1,3 +1,7 @@
+<!-- Document Head Section -->
+<!-- Purpose: Defines the document's metadata, title, and links to external resources. -->
+<!-- Functionality: Sets character encoding, viewport for responsive design, page title, meta description, and links to fonts and stylesheet. -->
+<!-- Key logic: Ensures proper rendering and SEO; includes favicon for browser tab icon. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +11,18 @@
     <meta name="description" content="Bioengineer with expertise in neuromodulation, AI, and biomedical solutions.">
     <link href="https://fonts.googleapis.com/css?family=PT%20Sans:400,700|Merriweather:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
+
+<!-- Body Section -->
+<!-- Purpose: Contains the main content of the webpage, including header, main sections, and footer. -->
+<!-- Functionality: Structures the visible page layout with semantic HTML elements. -->
 <body>
+
+    <!-- Header Section -->
+    <!-- Purpose: Displays the hero section with profile information and social links. -->
+    <!-- Functionality: Introduces the user with image, bio, and contact links. -->
     <header>
         <div class="hero">
             <div class="hero-container">
@@ -49,6 +62,9 @@
         </div>
     </header>
 
+    <!-- Main Content Section -->
+    <!-- Purpose: Contains the primary content sections of the portfolio. -->
+    <!-- Functionality: Organizes professional information into logical sections like experience, education, etc. -->
     <main>
         <section id="experience">
             <h2 data-en="Experience" data-es="Experiencia">Experience</h2>
@@ -136,23 +152,23 @@
             <h2 data-en="Skills" data-es="Habilidades">Skills</h2>
             <div class="skill-category">
                 <h3 data-en="Clinical and Biomedical Competence:" data-es="Competencia clínica y biomédica:">Clinical and Biomedical Competence:</h3>
-                <p data-en="Deep brain stimulation (DBS), spinal cord stimulation, neuromodulation, brain modulation, medical devices, biomedical device design, surgical assistance, technovigilance, patient education, first aid (CPR, wound care, airway clearance)." data-es="Estimulación cerebral profunda (DBS), estimulación medular, neuromodulación, modulación cerebral, dispositivos médicos, diseño de dispositivos biomédicos, asistencia quirúrgica, tecnovigilancia, educación a pacientes, primeros auxilios (RCP, cuidado de heridas, desobstrucción de vía aérea).">Deep brain stimulation (DBS), spinal cord stimulation, neuromodulation, brain modulation, medical devices, biomedical device design, surgical assistance, technovigilance, patient education, first aid (CPR, wound care, airway clearance).</p>
+                <p data-en="Deep brain stimulation (DBS), spinal cord stimulation (SCS), sacral stimulation, intrathecal drug delivery pumps (TDD), laryngeal nerve monitoring, neuromodulation, medical devices, biomedical device design, technovigilance, surgical assistance, patient education, first aid (CPR, wound care, airway clearance)." data-es="Estimulación cerebral profunda (DBS), estimulación medular (SCS), estimulación sacra, bombas intratecales (TDD), monitoreo de nervio laríngeo, neuromodulación, dispositivos médicos, diseño de dispositivos biomédicos, tecnovigilancia, asistencia quirúrgica, educación al paciente, primeros auxilios (RCP, cuidado de heridas, desobstrucción de vías aéreas).">Deep brain stimulation (DBS), spinal cord stimulation (SCS), sacral stimulation, intrathecal drug delivery pumps (TDD), laryngeal nerve monitoring, neuromodulation, medical devices, biomedical device design, technovigilance, surgical assistance, patient education, first aid (CPR, wound care, airway clearance).</p>
             </div>
             <div class="skill-category">
                 <h3 data-en="Data Science and Artificial Intelligence:" data-es="Ciencia de datos e inteligencia artificial:">Data Science and Artificial Intelligence:</h3>
-                <p data-en="Artificial intelligence, machine learning, deep learning, natural language processing (NLP), computer vision, feature engineering, signal processing, statistical analysis, data analysis, data visualization, data manipulation, prompt engineering, AI prompting." data-es="Inteligencia artificial, aprendizaje automático, aprendizaje profundo, procesamiento de lenguaje natural (NLP), visión por computador, ingeniería de características, procesamiento de señales, análisis estadístico, análisis de datos, visualización de datos, manipulación de datos, prompt engineering, prompting en IA.">Artificial intelligence, machine learning, deep learning, natural language processing (NLP), computer vision, feature engineering, signal processing, statistical analysis, data analysis, data visualization, data manipulation, prompt engineering, AI prompting.</p>
+                <p data-en="Machine learning, deep learning, natural language processing (spaCy), computer vision (OpenCV), feature engineering, signal processing, statistical analysis, data analysis, data visualization, AI prompting, prompt engineering." data-es="Aprendizaje automático (Machine Learning), aprendizaje profundo (Deep Learning), procesamiento de lenguaje natural (spaCy), visión computacional (OpenCV), ingeniería de características, procesamiento de señales, análisis estadístico, análisis de datos, visualización de datos, ingeniería de prompts, AI prompting.">Machine learning, deep learning, natural language processing (spaCy), computer vision (OpenCV), feature engineering, signal processing, statistical analysis, data analysis, data visualization, AI prompting, prompt engineering.</p>
             </div>
             <div class="skill-category">
                 <h3 data-en="Programming and Tools:" data-es="Programación y herramientas:">Programming and Tools:</h3>
-                <p data-en="Python (NumPy, Pandas, SciPy, scikit-learn, TensorFlow, Keras, PyTorch, spaCy, OpenCV), R, SQL and databases, web development (HTML, CSS, JavaScript, Bootstrap, Flask), visualization libraries (Matplotlib, Seaborn, Plotly, Bokeh), Streamlit, Tableau, Power BI, Jupyter Notebook, JupyterLab, Google Colab, Visual Studio Code." data-es="Python (NumPy, Pandas, SciPy, scikit-learn, TensorFlow, Keras, PyTorch, spaCy, OpenCV), R, SQL y bases de datos, desarrollo web (HTML, CSS, JavaScript, Bootstrap, Flask), librerías de visualización (Matplotlib, Seaborn, Plotly, Bokeh), Streamlit, Tableau, Power BI, Jupyter Notebook, JupyterLab, Google Colab, Visual Studio Code.">Python (NumPy, Pandas, SciPy, scikit-learn, TensorFlow, Keras, PyTorch, spaCy, OpenCV), R, SQL and databases, web development (HTML, CSS, JavaScript, Bootstrap, Flask), visualization libraries (Matplotlib, Seaborn, Plotly, Bokeh), Streamlit, Tableau, Power BI, Jupyter Notebook, JupyterLab, Google Colab, Visual Studio Code.</p>
+                <p data-en="Python, R, JavaScript, SQL, Flask, HTML, CSS, Bootstrap, Streamlit, Bash scripting. Libraries and frameworks: TensorFlow, Keras, PyTorch, scikit-learn, NumPy, Pandas, SciPy, Matplotlib, Seaborn, Plotly, Bokeh." data-es="Python, R, JavaScript, SQL, Flask, HTML, CSS, Bootstrap, Streamlit, scripting en Bash. Librerías y frameworks: TensorFlow, Keras, PyTorch, scikit-learn, NumPy, Pandas, SciPy, Matplotlib, Seaborn, Plotly, Bokeh.">Python, R, JavaScript, SQL, Flask, HTML, CSS, Bootstrap, Streamlit, Bash scripting. Libraries and frameworks: TensorFlow, Keras, PyTorch, scikit-learn, NumPy, Pandas, SciPy, Matplotlib, Seaborn, Plotly, Bokeh.</p>
             </div>
             <div class="skill-category">
                 <h3 data-en="Cloud Computing and Platforms:" data-es="Computación en la nube y plataformas:">Cloud Computing and Platforms:</h3>
-                <p data-en="Microsoft Azure (cloud data, networking, security, services, storage, virtualization), AWS SageMaker, GitHub, GitHub Copilot." data-es="Microsoft Azure (datos en la nube, redes, seguridad, servicios, almacenamiento, virtualización), AWS SageMaker, GitHub, GitHub Copilot.">Microsoft Azure (cloud data, networking, security, services, storage, virtualization), AWS SageMaker, GitHub, GitHub Copilot.</p>
+                <p data-en="Tools and platforms: Microsoft Azure, AWS SageMaker, Google Colab, GitHub, GitHub Copilot, Jupyter Notebook, JupyterLab, Visual Studio Code, Tableau, Power BI." data-es="Herramientas y plataformas: Microsoft Azure, AWS SageMaker, Google Colab, GitHub, GitHub Copilot, Jupyter Notebook, JupyterLab, Visual Studio Code, Tableau, Power BI.">Tools and platforms: Microsoft Azure, AWS SageMaker, Google Colab, GitHub, GitHub Copilot, Jupyter Notebook, JupyterLab, Visual Studio Code, Tableau, Power BI.</p>
             </div>
             <div class="skill-category">
                 <h3 data-en="Interpersonal and Professional Skills:" data-es="Competencias interpersonales y profesionales:">Interpersonal and Professional Skills:</h3>
-                <p data-en="Leadership, teamwork, communication, interdisciplinary collaboration, problem-solving, attention to detail, research skills, time management, planning." data-es="Liderazgo, trabajo en equipo, comunicación, colaboración interdisciplinaria, resolución de problemas, atención al detalle, habilidades de investigación, gestión del tiempo, planeación.">Leadership, teamwork, communication, interdisciplinary collaboration, problem-solving, attention to detail, research skills, time management, planning.</p>
+                <p data-en="Leadership, teamwork, communication, interdisciplinary collaboration, problem-solving, critical thinking, analytical mindset, adaptability, time management, research skills, ethical decision-making, innovation-driven mindset." data-es="Liderazgo, trabajo en equipo, comunicación, colaboración interdisciplinaria, resolución de problemas, pensamiento crítico, mentalidad analítica, adaptabilidad, gestión del tiempo, habilidades de investigación, toma de decisiones éticas, enfoque orientado a la innovación.">Leadership, teamwork, communication, interdisciplinary collaboration, problem-solving, critical thinking, analytical mindset, adaptability, time management, research skills, ethical decision-making, innovation-driven mindset.</p>
             </div>
         </section>
 
@@ -165,11 +181,17 @@
         </section>
     </main>
 
+    <!-- Footer Section -->
+    <!-- Purpose: Provides copyright information. -->
+    <!-- Functionality: Displays legal notice at the bottom of the page. -->
     <footer>
         <p data-en="&copy; 2025 Carlos Mateo Jurado Díaz. All rights reserved." data-es="&copy; 2025 Carlos Mateo Jurado Díaz. Todos los derechos reservados.">&copy; 2025 Carlos Mateo Jurado Díaz. All rights reserved.</p>
     </footer>
 
-    <!-- Google Analytics -->
+    <!-- Scripts Section -->
+    <!-- Purpose: Adds dynamic functionality and analytics tracking. -->
+    <!-- Functionality: Handles language switching based on browser language and initializes Google Analytics. -->
+    <!-- Key logic: Uses data attributes for multilingual support; assumes English as default if not Spanish. -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const lang = navigator.language.startsWith('es') ? 'es' : 'en';
@@ -182,6 +204,8 @@
             });
         });
     </script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2WS8GDXW8"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -191,5 +215,4 @@
         gtag('config', 'G-W2WS8GDXW8');
     </script>
 </body>
-
 </html>

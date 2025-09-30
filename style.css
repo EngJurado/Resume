@@ -1,5 +1,12 @@
-/* Reset and base styles */
+/* Reset and Base Styles */
+/* Purpose: Resets default browser styles and defines base styles for consistent rendering. */
+/* Functionality: Uses box-sizing border-box for all elements; sets margin and padding to 0. */
+/* Assumptions: Ensures uniform layout across different browsers. */
 :root {
+    /* CSS Custom Properties */
+    /* Purpose: Defines reusable CSS variables for spacing to maintain consistency across the design. */
+    /* Functionality: Calculates spacing values based on a base unit. */
+    /* Assumptions: Base spacing unit is 8px. */
     --spacing-unit: 8px;
     --spacing-1: calc(var(--spacing-unit) * 1); /* 8px */
     --spacing-2: calc(var(--spacing-unit) * 2); /* 16px */
@@ -15,7 +22,10 @@
     box-sizing: border-box;
 }
 
-/* Animations */
+/* Keyframe Animations */
+/* Purpose: Defines smooth transition effects for elements. */
+/* Functionality: Fades in sections from opacity 0 to 1 with upward movement. */
+/* Key logic: Applied to section elements for entrance animation. */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -31,6 +41,10 @@ section {
     animation: fadeIn 0.6s ease-out;
 }
 
+/* Global Body Styles */
+/* Purpose: Sets typography and background for the entire page. */
+/* Functionality: Uses serif font for body text, light background. */
+/* Assumptions: Provides readable text with good contrast. */
 body {
     font-family: 'Merriweather', serif;
     line-height: 1.6;
@@ -39,16 +53,25 @@ body {
     margin: 0;
 }
 
+/* Heading Styles */
+/* Purpose: Defines font family and weight for headings. */
+/* Functionality: Uses sans-serif font for headings to differentiate from body text. */
 h1, h2, h3 {
     font-family: 'PT Sans', sans-serif;
     font-weight: 700;
 }
 
-/* Header */
+/* Header Layout */
+/* Purpose: Positions the header element. */
+/* Functionality: Sets relative positioning for the header. */
 header {
     position: relative;
 }
 
+/* Hero Section */
+/* Purpose: Creates a full-width hero background with gradient. */
+/* Functionality: Centers content vertically and horizontally. */
+/* Key logic: Uses flexbox for alignment; gradient background for visual appeal. */
 .hero {
     width: 100%;
     min-height: 400px;
@@ -59,6 +82,9 @@ header {
     padding: var(--spacing-4);
 }
 
+/* Hero Container */
+/* Purpose: Wraps hero content with max width. */
+/* Functionality: Centers the hero content horizontally. */
 .hero-container {
     display: flex;
     align-items: center;
@@ -67,6 +93,9 @@ header {
     width: 100%;
 }
 
+/* Hero Content */
+/* Purpose: Arranges hero elements in a row. */
+/* Functionality: Displays image and text side by side. */
 .hero-content {
     display: flex;
     flex-direction: row;
@@ -77,6 +106,9 @@ header {
 }
 
 
+/* Hero Image */
+/* Purpose: Styles the profile image in the hero section. */
+/* Functionality: Circular image with border and shadow. */
 .hero-image {
     width: 250px;
     height: 250px;
@@ -86,11 +118,16 @@ header {
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
+/* About Content */
+/* Purpose: Styles the text content in the hero section. */
+/* Functionality: White text color for contrast. */
 .about-content {
     color: #fff;
 }
 
-
+/* About Content Paragraph */
+/* Purpose: Formats paragraphs in the about section. */
+/* Functionality: Adds margin and font size for readability. */
 .about-content p {
     margin-bottom: var(--spacing-3);
     font-size: 1.1rem;
@@ -98,7 +135,10 @@ header {
 }
 
 
-/* Main content */
+/* Main Content Layout */
+/* Purpose: Defines the layout for the main content area. */
+/* Functionality: Centers content with max width, uses grid for spacing. */
+/* Assumptions: Grid gap provides consistent vertical spacing between sections. */
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -111,6 +151,9 @@ section {
     margin-bottom: 0;
 }
 
+/* H1 Heading */
+/* Purpose: Styles the main heading in the hero. */
+/* Functionality: Large font size, white text for gradient background. */
 h1 {
     font-size: 2.5rem;
     -webkit-background-clip: text;
@@ -120,6 +163,9 @@ h1 {
     margin-bottom: var(--spacing-3);
 }
 
+/* H2 Heading */
+/* Purpose: Styles section headings. */
+/* Functionality: Blue color with underline for emphasis. */
 h2 {
     font-size: 2rem;
     color: #1010eb;
@@ -128,31 +174,47 @@ h2 {
     padding-bottom: var(--spacing-2);
 }
 
+/* H3 Heading */
+/* Purpose: Styles subsection headings. */
+/* Functionality: Dark color for hierarchy. */
 h3 {
     font-size: 1.5rem;
     color: #140f4b;
     margin-bottom: var(--spacing-2);
 }
 
+/* Paragraph Styles */
+/* Purpose: General paragraph formatting. */
+/* Functionality: Adds bottom margin for spacing. */
 p {
     margin-bottom: var(--spacing-2);
 }
 
+/* Unordered List */
+/* Purpose: Styles lists in content sections. */
+/* Functionality: Square bullets, indented. */
 ul {
     list-style-type: square;
     margin-left: var(--spacing-3);
     margin-bottom: var(--spacing-2);
 }
 
+/* List Item */
+/* Purpose: Adds spacing between list items. */
 li {
     margin-bottom: var(--spacing-1);
 }
 
-/* About section */
+/* About Section */
+/* Purpose: Centers the about content. */
+/* Functionality: Text alignment for the about section. */
 #about {
     text-align: center;
 }
 
+/* Social Links */
+/* Purpose: Displays social media icons. */
+/* Functionality: Flex layout for horizontal alignment, hover effects. */
 .social-links {
     display: flex;
     justify-content: center;
