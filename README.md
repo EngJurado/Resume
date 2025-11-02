@@ -94,8 +94,7 @@ src/
     └── i18n.ts          # Internationalization utilities
 public/
 ├── favicon.ico          # Favicon
-├── profile.webp         # Profile image
-└── scon.webp           # Society logo
+└── profile.webp         # Profile image
 ```
 
 ## Technologies Used
@@ -148,5 +147,6 @@ If you prefer manual deployment:
 The site will be available at: [https://engjurado.github.io/Resume](https://engjurado.github.io/Resume)
 
 ## License
+
 
 This project is licensed under the MIT License.
