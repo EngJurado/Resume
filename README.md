@@ -2,6 +2,8 @@
 
 A modern, responsive resume website built with Next.js, TypeScript, and Tailwind CSS.
 
+Repository: [https://github.com/EngJurado/Resume](https://github.com/EngJurado/Resume)
+
 ## Features
 
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
@@ -9,6 +11,13 @@ A modern, responsive resume website built with Next.js, TypeScript, and Tailwind
 - **Modern UI**: Clean, professional design with smooth animations
 - **SEO Optimized**: Built with Next.js for better search engine visibility
 - **TypeScript**: Type-safe development for better code quality
+
+## Branches
+
+This repository uses two branches for different purposes:
+
+- **main**: Contains the built and optimized version ready for deployment. This branch is used for production hosting.
+- **source**: Contains the source code. This is where development happens.
 
 ## Getting Started
 
@@ -21,27 +30,45 @@ A modern, responsive resume website built with Next.js, TypeScript, and Tailwind
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/EngJurado/Resume.git
 cd react-resume
 ```
 
-2. Install dependencies:
+2. Switch to the source branch:
+```bash
+git checkout source
+```
+
+3. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Run the development server:
+4. Run the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Build for Production
 
+Before building, ensure you are on the source branch and have made your changes.
+
+1. Build the project:
 ```bash
 npm run build
-npm start
+```
+
+2. The build output will be in the `build/` directory.
+
+3. To deploy, switch to the main branch and copy the build files:
+```bash
+git checkout main
+cp -r build/* .
+git add .
+git commit -m "Deploy latest build"
+git push origin main
 ```
 
 ## Project Structure
@@ -51,6 +78,7 @@ src/
 ├── app/
 │   ├── globals.css      # Global styles
 │   ├── layout.tsx       # Root layout
+│   ├── not-found.tsx    # 404 Page
 │   └── page.tsx         # Home page
 ├── components/
 │   ├── Header.tsx       # Hero section with profile
@@ -97,14 +125,28 @@ Edit the CSS custom properties in `src/app/globals.css` under the `:root` select
 
 ## Deployment
 
-This app can be deployed to Vercel, Netlify, or any platform that supports Next.js.
+The main branch is configured for GitHub Pages deployment. The build process generates static files that are served directly from the main branch.
 
-For Vercel deployment:
-```bash
-npm install -g vercel
-vercel
-```
+### Automatic Deployment
+
+The repository includes GitHub Actions for automated deployment. When you push changes to the source branch, the CI/CD pipeline will:
+
+1. Build the project
+2. Copy build files to the main branch
+3. Deploy to GitHub Pages
+
+### Manual Deployment
+
+If you prefer manual deployment:
+
+1. Make changes on the source branch
+2. Build the project: `npm run build`
+3. Switch to main branch: `git checkout main`
+4. Copy build files: `cp -r build/* .`
+5. Commit and push: `git add . && git commit -m "Deploy" && git push origin main`
+
+The site will be available at: [https://engjurado.github.io/Resume](https://engjurado.github.io/Resume)
 
 ## License
 
-This project is private and proprietary.
+This project is licensed under the MIT License.
