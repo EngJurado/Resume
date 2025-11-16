@@ -1,71 +1,21 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import '../lib/i18n'
+import { LanguageProvider } from '@/lib/languageContext'
+import { getInitialLanguage } from '@/lib/serverLanguageDetection'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Carlos Mateo Jurado Díaz - Portfolio',
-  description: 'Bioengineer with expertise in neuromodulation, AI, and biomedical solutions. Professional portfolio showcasing experience in medical devices, machine learning, and clinical support.',
-  keywords: ['bioengineer', 'neuromodulation', 'artificial intelligence', 'biomedical engineering', 'machine learning', 'medical devices', 'portfolio'],
-  authors: [{ name: 'Carlos Mateo Jurado Díaz' }],
-  creator: 'Carlos Mateo Jurado Díaz',
-  publisher: 'Carlos Mateo Jurado Díaz',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://engjurado.me/'), // Replace with your actual domain
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'Carlos Mateo Jurado Díaz - Bioengineer Portfolio',
-    description: 'Bioengineer specializing in neuromodulation, AI, and biomedical solutions. Experience in medical devices, machine learning, and clinical technical support.',
-    url: 'https://engjurado.me/',
-    siteName: 'Carlos Mateo Jurado Díaz Portfolio',
-    images: [
-      {
-        url: '/profile.webp',
-        width: 250,
-        height: 250,
-        alt: 'Professional headshot of Carlos Mateo Jurado Díaz, Bioengineer',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Carlos Mateo Jurado Díaz - Bioengineer Portfolio',
-    description: 'Bioengineer with expertise in neuromodulation, AI, and biomedical solutions.',
-    images: ['/profile.webp'],
-    creator: '@EngJurado',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-}
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  // Get initial language for SSR
+  const initialLanguage = getInitialLanguage()
+
   return (
-    <html lang="en">
+    <html lang={initialLanguage}>
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -121,8 +71,64 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
-        {children}
+        <LanguageProvider initialLanguage={initialLanguage}>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'Carlos Mateo Jurado Díaz - Portfolio',
+  description: 'Bioengineer with expertise in neuromodulation, AI, and biomedical solutions. Professional portfolio showcasing experience in medical devices, machine learning, and clinical support.',
+  keywords: ['bioengineer', 'neuromodulation', 'artificial intelligence', 'biomedical engineering', 'machine learning', 'medical devices', 'portfolio'],
+  authors: [{ name: 'Carlos Mateo Jurado Díaz' }],
+  creator: 'Carlos Mateo Jurado Díaz',
+  publisher: 'Carlos Mateo Jurado Díaz',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://engjurado.me/'), // Replace with your actual domain
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Carlos Mateo Jurado Díaz - Bioengineer Portfolio',
+    description: 'Bioengineer specializing in neuromodulation, AI, and biomedical solutions. Experience in medical devices, machine learning, and clinical technical support.',
+    url: 'https://engjurado.me/',
+    siteName: 'Carlos Mateo Jurado Díaz Portfolio',
+    images: [
+      {
+        url: '/profile.webp',
+        width: 250,
+        height: 250,
+        alt: 'Professional headshot of Carlos Mateo Jurado Díaz, Bioengineer',
+      },
+    ],
+    locale: getInitialLanguage() === 'es' ? 'es_ES' : 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Carlos Mateo Jurado Díaz - Bioengineer Portfolio',
+    description: 'Bioengineer with expertise in neuromodulation, AI, and biomedical solutions.',
+    images: ['/profile.webp'],
+    creator: '@EngJurado',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }

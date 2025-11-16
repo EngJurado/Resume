@@ -7,10 +7,12 @@ import Languages from '@/components/Languages'
 import Skills from '@/components/Skills'
 import Recognitions from '@/components/Recognitions'
 import Footer from '@/components/Footer'
+import LanguageLoader from '@/components/LanguageLoader'
 
 export default function Home() {
   return (
     <>
+      <LanguageLoader />
       <Header />
       <main id="main-content">
         <Experience />

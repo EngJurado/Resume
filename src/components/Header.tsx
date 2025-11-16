@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslation } from '@/lib/i18n'
+import { useTranslation } from '@/lib/languageContext'
 import { IconMail, IconBrandGithub, IconBrandLinkedin, IconBrandTelegram, IconBrandWhatsapp, IconBrandX, IconWorld } from '@tabler/icons-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
@@ -12,13 +12,8 @@ export default function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleLanguageChange = (event: any) => {
-      setCurrentLang(event.detail)
-    }
-
-    window.addEventListener('languageChange', handleLanguageChange)
-    return () => window.removeEventListener('languageChange', handleLanguageChange)
-  }, [])
+    setCurrentLang(i18n.language)
+  }, [i18n.language])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -31,7 +26,7 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const changeLanguage = (lang: string) => {
+  const handleLanguageChange = (lang: 'en' | 'es') => {
     i18n.changeLanguage(lang)
     setCurrentLang(lang)
     setIsDropdownOpen(false)
@@ -108,11 +103,11 @@ export default function Header() {
             <li
               role="option"
               aria-selected={currentLang === 'en'}
-              onClick={() => changeLanguage('en')}
+              onClick={() => handleLanguageChange('en')}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault()
-                  changeLanguage('en')
+                  handleLanguageChange('en')
                 }
               }}
               tabIndex={0}
@@ -122,11 +117,11 @@ export default function Header() {
             <li
               role="option"
               aria-selected={currentLang === 'es'}
-              onClick={() => changeLanguage('es')}
+              onClick={() => handleLanguageChange('es')}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault()
-                  changeLanguage('es')
+                  handleLanguageChange('es')
                 }
               }}
               tabIndex={0}

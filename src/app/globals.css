@@ -98,6 +98,32 @@ header {
     z-index: 1000;
 }
 
+/* Language Loader */
+.language-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    color: #666;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+}
+
+.loader-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #1010eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .language-toggle {
     display: flex;
     align-items: center;
