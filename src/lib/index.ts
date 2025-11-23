@@ -1,5 +1,5 @@
 // Re-export the main i18n functionality
-export * from './i18n'
+
 
 // Export the new language context functionality
 export { LanguageProvider, useLanguage } from './languageContext'

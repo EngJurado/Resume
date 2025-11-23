@@ -90,8 +90,10 @@ src/
 │   ├── Skills.tsx       # Technical and soft skills
 │   ├── Recognitions.tsx # Awards and recognitions
 │   └── Footer.tsx       # Footer with copyright
+├── data/
+│   └── resume-data.tsx  # Structured resume data (Edit this file!)
 └── lib/
-    └── i18n.ts          # Internationalization utilities
+    └── languageContext.tsx # Language state management
 public/
 ├── favicon.ico          # Favicon
 └── profile.webp         # Profile image
@@ -107,10 +109,19 @@ public/
 
 ## Customization
 
+### Updating Resume Information
+
+All resume data is located in `src/data/resume-data.tsx`. To update your information:
+
+1. Open `src/data/resume-data.tsx`.
+2. Edit the `RESUME_DATA` object.
+3. You can update personal details, experience, education, skills, etc.
+4. The data is structured to support both English (`en`) and Spanish (`es`).
+
 ### Adding New Sections
 
 1. Create a new component in `src/components/`
-2. Add translations in `src/lib/i18n.ts`
+2. Add the new section data to `src/data/resume-data.tsx` (you may need to update the interface if adding new types)
 3. Import and include the component in `src/app/page.tsx`
 
 ### Changing Colors/Themes
@@ -119,8 +130,9 @@ Edit the CSS custom properties in `src/app/globals.css` under the `:root` select
 
 ### Adding Languages
 
-1. Add new language keys in `src/lib/i18n.ts`
-2. Update the language toggle logic in `src/components/Header.tsx`
+1. Add new language keys in `src/data/resume-data.tsx`
+2. Update `src/lib/languageContext.tsx` to handle the new language.
+3. Update the language toggle logic in `src/components/Header.tsx`
 
 ## Deployment
 

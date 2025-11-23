@@ -1,12 +1,13 @@
 'use client'
 
 import { useTranslation } from '@/lib/languageContext'
-import { IconMail, IconBrandGithub, IconBrandLinkedin, IconBrandTelegram, IconBrandWhatsapp, IconBrandX, IconWorld } from '@tabler/icons-react'
+import { RESUME_DATA } from '@/data/resume-data'
+import { IconWorld } from '@tabler/icons-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 
 export default function Header() {
-  const { t, i18n } = useTranslation()
+  const { i18n, resumeData } = useTranslation()
   const [currentLang, setCurrentLang] = useState(i18n.language)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -51,35 +52,29 @@ export default function Header() {
         <div className="hero-container">
           <div className="hero-content">
             <Image
-              src="/profile.webp"
-              alt={t('profile-image-alt') || "Professional headshot of Carlos Mateo Jurado Díaz, Bioengineer"}
+              src={RESUME_DATA.avatarUrl}
+              alt={resumeData.sectionTitles.profileImageAlt}
               className="hero-image"
               width={250}
               height={250}
+              priority
             />
             <div className="text-content">
-              <h1>{t('name')}</h1>
+              <h1>{resumeData.name}</h1>
               <div className="about-content">
-                <p>{t('bio')}</p>
+                <p>{resumeData.bio}</p>
                 <div className="social-links">
-                  <a href="mailto:eng.jurado@gmail.com" target="_blank" rel="noopener noreferrer" aria-label={t('email-link')}>
-                    <IconMail size={40} />
-                  </a>
-                  <a href="https://github.com/EngJurado" target="_blank" rel="noopener noreferrer" aria-label={t('github-link')}>
-                    <IconBrandGithub size={40} />
-                  </a>
-                  <a href="https://www.linkedin.com/in/engjurado/" target="_blank" rel="noopener noreferrer" aria-label={t('linkedin-link')}>
-                    <IconBrandLinkedin size={40} />
-                  </a>
-                  <a href="https://telegram.me/engjurado" target="_blank" rel="noopener noreferrer" aria-label={t('telegram-link')}>
-                    <IconBrandTelegram size={40} />
-                  </a>
-                  <a href="https://wa.me/qr/Y57EJ6RVNLYQI1" target="_blank" rel="noopener noreferrer" aria-label={t('whatsapp-link')}>
-                    <IconBrandWhatsapp size={40} />
-                  </a>
-                  <a href="https://x.com/EngJurado" target="_blank" rel="noopener noreferrer" aria-label={t('x-link')}>
-                    <IconBrandX size={40} />
-                  </a>
+                  {RESUME_DATA.contact.social.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${social.name} link`}
+                    >
+                      <social.icon size={40} />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

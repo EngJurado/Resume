@@ -3,15 +3,15 @@
 import { useTranslation } from '@/lib/languageContext'
 
 export default function Licenses() {
-  const { t } = useTranslation()
+  const { resumeData } = useTranslation()
 
   return (
     <section id="licenses">
-      <h2>{t('licenses')}</h2>
+      <h2>{resumeData.sectionTitles.licenses}</h2>
       <ul>
-        <li>{t('license-1')}</li>
-        <li>{t('license-2')}</li>
-        <li>{t('license-3')}</li>
+        {resumeData.licenses.map((license, index) => (
+          <li key={index}>{license}</li>
+        ))}
       </ul>
     </section>
   )

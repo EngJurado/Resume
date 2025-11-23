@@ -3,11 +3,11 @@
 import { useTranslation } from '@/lib/languageContext'
 
 export default function Footer() {
-  const { t } = useTranslation()
+  const { resumeData } = useTranslation()
 
   return (
     <footer>
-      <p dangerouslySetInnerHTML={{ __html: t('footer') }} />
+      <p dangerouslySetInnerHTML={{ __html: resumeData.sectionTitles.footer }} />
     </footer>
   )
 }

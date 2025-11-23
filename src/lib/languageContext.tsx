@@ -1,12 +1,13 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
-import { 
-  detectPreferredLanguage, 
-  saveLanguagePreference, 
+import {
+  detectPreferredLanguage,
+  saveLanguagePreference,
   getSavedLanguagePreference,
-  type SupportedLanguage 
+  type SupportedLanguage
 } from './languageDetection'
+import { RESUME_DATA } from '@/data/resume-data'
 
 interface LanguageContextType {
   language: SupportedLanguage
@@ -29,11 +30,11 @@ export function LanguageProvider({ children, initialLanguage }: LanguageProvider
     // Always detect language unless there's a saved preference
     const initializeLanguage = async () => {
       setIsLoading(true)
-      
+
       try {
         // Check for saved preference first
         const savedLang = getSavedLanguagePreference()
-        
+
         if (savedLang) {
           setLanguage(savedLang)
         } else {
@@ -56,7 +57,7 @@ export function LanguageProvider({ children, initialLanguage }: LanguageProvider
   const changeLanguage = (lang: SupportedLanguage) => {
     setLanguage(lang)
     saveLanguagePreference(lang)
-    
+
     // Dispatch custom event for components that listen for language changes
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }))
@@ -81,19 +82,33 @@ export function useLanguage() {
 // Hook for translation that works with the new context
 export function useTranslation() {
   const { language, changeLanguage, isLoading } = useLanguage()
-  const [translations, setTranslations] = useState<any>({})
 
-  useEffect(() => {
-    // Import translations dynamically to avoid circular dependencies
-    import('./i18n').then((module) => {
-      setTranslations(module.translations)
-    })
-  }, [])
+  const resumeData = language === 'es' ? RESUME_DATA.translations.es : RESUME_DATA.translations.en
 
   const t = (key: string) => {
-    const translation = translations[language]?.[key] || translations['en']?.[key] || key
-    return translation
+    // Helper for legacy support
+    if (key === 'name') return resumeData.name;
+    if (key === 'bio') return resumeData.bio;
+    if (key === 'profile-image-alt') return resumeData.sectionTitles.profileImageAlt;
+    if (key === 'email-link') return `Send email to ${resumeData.name}`;
+    if (key === 'github-link') return `Visit ${resumeData.name}'s GitHub profile`;
+    if (key === 'linkedin-link') return `Visit ${resumeData.name}'s LinkedIn profile`;
+    if (key === 'telegram-link') return `Contact ${resumeData.name} on Telegram`;
+    if (key === 'whatsapp-link') return `Contact ${resumeData.name} on WhatsApp`;
+    if (key === 'x-link') return `Visit ${resumeData.name}'s X (Twitter) profile`;
+
+    // Section titles
+    if (key === 'experience') return resumeData.sectionTitles.experience;
+    if (key === 'education') return resumeData.sectionTitles.education;
+    if (key === 'continuing-education') return resumeData.sectionTitles.continuingEducation;
+    if (key === 'licenses') return resumeData.sectionTitles.licenses;
+    if (key === 'languages') return resumeData.sectionTitles.languages;
+    if (key === 'skills') return resumeData.sectionTitles.skills;
+    if (key === 'recognitions') return resumeData.sectionTitles.recognitions;
+
+    // Fallback for other keys if necessary, or return key
+    return key
   }
 
-  return { t, i18n: { language, changeLanguage, isLoading } }
+  return { t, i18n: { language, changeLanguage, isLoading }, resumeData }
 }

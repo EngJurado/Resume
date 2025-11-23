@@ -3,14 +3,15 @@
 import { useTranslation } from '@/lib/languageContext'
 
 export default function Languages() {
-  const { t } = useTranslation()
+  const { resumeData } = useTranslation()
 
   return (
     <section id="languages">
-      <h2>{t('languages')}</h2>
+      <h2>{resumeData.sectionTitles.languages}</h2>
       <ul>
-        <li>{t('lang-1')}</li>
-        <li>{t('lang-2')}</li>
+        {resumeData.languages.map((lang, index) => (
+          <li key={index}>{lang}</li>
+        ))}
       </ul>
     </section>
   )

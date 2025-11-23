@@ -3,36 +3,18 @@
 import { useTranslation } from '@/lib/languageContext'
 
 export default function Skills() {
-  const { t } = useTranslation()
+  const { resumeData } = useTranslation()
 
   return (
     <section id="skills">
-      <h2>{t('skills')}</h2>
+      <h2>{resumeData.sectionTitles.skills}</h2>
 
-      <div className="skill-category">
-        <h3>{t('clinical-title')}</h3>
-        <p>{t('clinical-desc')}</p>
-      </div>
-
-      <div className="skill-category">
-        <h3>{t('data-title')}</h3>
-        <p>{t('data-desc')}</p>
-      </div>
-
-      <div className="skill-category">
-        <h3>{t('programming-title')}</h3>
-        <p>{t('programming-desc')}</p>
-      </div>
-
-      <div className="skill-category">
-        <h3>{t('cloud-title')}</h3>
-        <p>{t('cloud-desc')}</p>
-      </div>
-
-      <div className="skill-category">
-        <h3>{t('interpersonal-title')}</h3>
-        <p>{t('interpersonal-desc')}</p>
-      </div>
+      {resumeData.skills.map((skill, index) => (
+        <div className="skill-category" key={index}>
+          <h3>{skill.title}</h3>
+          <p>{skill.desc}</p>
+        </div>
+      ))}
     </section>
   )
 }

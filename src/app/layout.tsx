@@ -31,7 +31,7 @@ export default function RootLayout({
               "jobTitle": "Bioengineer",
               "description": "Bioengineer with expertise in neuromodulation, AI, and biomedical solutions. Professional experience in medical devices, machine learning, and clinical technical support.",
               "image": "/profile.webp",
-              "url": "https://yourdomain.com",
+              "url": "https://engjurado.me/",
               "sameAs": [
                 "https://github.com/EngJurado",
                 "https://www.linkedin.com/in/engjurado/",
