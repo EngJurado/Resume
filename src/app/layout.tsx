@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './tailwind.css'
 import './globals.css'
+import './dark-mode.css'
 import { LanguageProvider } from '@/lib/languageContext'
+import { Providers } from './Providers'
 import { getInitialLanguage } from '@/lib/serverLanguageDetection'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,7 +18,7 @@ export default function RootLayout({
   const initialLanguage = getInitialLanguage()
 
   return (
-    <html lang={initialLanguage}>
+    <html lang={initialLanguage} suppressHydrationWarning={true}>
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -31,7 +34,7 @@ export default function RootLayout({
               "jobTitle": "Bioengineer",
               "description": "Bioengineer with expertise in neuromodulation, AI, and biomedical solutions. Professional experience in medical devices, machine learning, and clinical technical support.",
               "image": "/profile.webp",
-              "url": "https://engjurado.me/",
+              "url": "https://yourdomain.com",
               "sameAs": [
                 "https://github.com/EngJurado",
                 "https://www.linkedin.com/in/engjurado/",
@@ -70,9 +73,10 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <a href="#main-content" className="skip-link">Skip to main content</a>
         <LanguageProvider initialLanguage={initialLanguage}>
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </LanguageProvider>
       </body>
     </html>

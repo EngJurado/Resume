@@ -1,28 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-@layer base {
-  :root {
-    /* Medtronic Light Mode */
-    --bg-page: 255 255 255;      /* #FFFFFF */
-    --bg-surface: 243 244 246;   /* #F3F4F6 */
-    --text-main: 0 37 84;        /* #002554 (Brand Dark Blue) */
-    --text-muted: 51 65 85;      /* #334155 */
-    --primary: 0 37 84;          /* #002554 (Brand Dark Blue) */
-    --secondary: 0 133 202;      /* #0085CA (Medtronic Cobalt) */
-    --border-color: 226 232 240; /* #E2E8F0 */
-  }
-
-  .dark {
-    /* Medtronic Dark Mode (Adapted) */
-    --bg-page: 11 17 32;         /* #0B1120 (Deep Navy) */
-    --bg-surface: 21 30 50;      /* #151E32 (Lighter Navy) */
-    --text-main: 248 250 252;    /* #F8FAFC */
-    --text-muted: 203 213 225;   /* #CBD5E1 */
-    --primary: 59 130 246;       /* #3B82F6 (Electric Blue for contrast) */
-    --secondary: 96 165 250;     /* #60A5FA */
-    --border-color: 30 41 59;    /* #1E293B */
-  }
-}
+@import url('https://fonts.googleapis.com/css?family=PT%20Sans:400,700|Merriweather:400,700&display=swap');
 
 /* Reset and Base Styles */
 /* Purpose: Resets default browser styles and defines base styles for consistent rendering. */
@@ -87,21 +63,21 @@ section {
 
 /* Global Body Styles */
 /* Purpose: Sets typography and background for the entire page. */
-/* Functionality: Uses Roboto font for body text. */
+/* Functionality: Uses serif font for body text, light background. */
 /* Assumptions: Provides readable text with good contrast. */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Merriweather', serif;
     line-height: 1.6;
-    color: rgb(var(--text-main));
-    background-color: rgb(var(--bg-page));
+    color: #333;
+    background-color: #f5f5f5;
     margin: 0;
 }
 
 /* Heading Styles */
 /* Purpose: Defines font family and weight for headings. */
-/* Functionality: Uses Roboto font for headings. */
+/* Functionality: Uses sans-serif font for headings to differentiate from body text. */
 h1, h2, h3 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 700;
 }
 
@@ -113,10 +89,12 @@ header {
 }
 
 /* Language Selector */
-/* Purpose: Positions the language selector in the controls container. */
-/* Functionality: Relative positioning since it's inside controls-container. */
+/* Purpose: Positions the language selector in the top-right corner. */
+/* Functionality: Fixed positioning for visibility across the page. */
 .language-selector {
-    position: relative;
+    position: fixed;
+    top: 20px;
+    right: 20px;
     z-index: 1000;
 }
 
@@ -151,8 +129,8 @@ header {
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
-    background-color: rgb(var(--primary));
-    color: rgb(var(--bg-page));
+    background-color: rgba(16, 16, 235, 0.9);
+    color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -163,7 +141,7 @@ header {
 }
 
 .language-toggle:hover {
-    background-color: rgb(var(--primary));
+    background-color: rgba(16, 16, 235, 1);
     transform: translateY(-1px);
 }
 
@@ -179,7 +157,7 @@ header {
 .language-dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -206,31 +184,8 @@ header {
 }
 
 .language-dropdown li[aria-selected="true"] {
-    background-color: rgba(var(--primary), 0.1);
+    background-color: rgba(16, 16, 235, 0.1);
     font-weight: 600;
-}
-
-/* Theme Toggle Button Base Styles */
-.theme-toggle-button {
-    background-color: rgb(var(--primary));
-    color: rgb(var(--bg-page));
-    border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1001;
-    position: relative;
-    transition: background-color 0.3s;
-}
-
-.theme-toggle-button:hover {
-    background-color: rgb(var(--primary));
 }
 
 /* Hero Section */
@@ -328,21 +283,21 @@ h1 {
 
 /* H2 Heading */
 /* Purpose: Styles section headings. */
-/* Functionality: Primary color with underline for emphasis. */
+/* Functionality: Blue color with underline for emphasis. */
 h2 {
     font-size: 2rem;
-    color: rgb(var(--primary));
+    color: #1010eb;
     margin-bottom: var(--spacing-3);
-    border-bottom: 2px solid rgb(var(--primary));
+    border-bottom: 2px solid #1010eb;
     padding-bottom: var(--spacing-2);
 }
 
 /* H3 Heading */
 /* Purpose: Styles subsection headings. */
-/* Functionality: Main text color for hierarchy. */
+/* Functionality: Dark color for hierarchy. */
 h3 {
     font-size: 1.5rem;
-    color: rgb(var(--text-main));
+    color: #140f4b;
     margin-bottom: var(--spacing-2);
 }
 
@@ -404,8 +359,8 @@ li {
 .job {
     margin-bottom: var(--spacing-4);
     padding: var(--spacing-3);
-    border-left: 4px solid rgb(var(--primary));
-    background-color: rgb(var(--bg-surface));
+    border-left: 4px solid #1010eb;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -417,7 +372,7 @@ li {
 }
 
 .date {
-    color: rgb(var(--text-muted));
+    color: #666;
     font-style: italic;
     margin-bottom: var(--spacing-2);
 }
@@ -426,7 +381,7 @@ li {
 .education-item {
     margin-bottom: var(--spacing-3);
     padding: var(--spacing-2);
-    background-color: rgb(var(--bg-surface));
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -443,7 +398,7 @@ li {
 }
 
 .skill-category h3 {
-    color: rgb(var(--primary));
+    color: #1010eb;
     margin-bottom: var(--spacing-2);
     font-weight: 600;
 }
@@ -452,8 +407,8 @@ li {
 footer {
     text-align: center;
     padding: var(--spacing-3);
-    background-color: rgb(var(--bg-page));
-    color: rgb(var(--text-main));
+    background-color: #140f4b;
+    color: #fff;
     margin-top: var(--spacing-5);
 }
 
@@ -560,10 +515,9 @@ footer {
         padding: var(--spacing-2);
     }
 
-    .controls-container {
+    .language-selector {
         top: 10px;
         right: 10px;
-        gap: 8px;
     }
 
     .language-toggle {

@@ -5,6 +5,7 @@ import { RESUME_DATA } from '@/data/resume-data'
 import { IconWorld } from '@tabler/icons-react'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
+import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   const { i18n, resumeData } = useTranslation()
@@ -81,50 +82,53 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className="language-selector" ref={dropdownRef}>
-        <button
-          onClick={toggleDropdown}
-          onKeyDown={handleKeyDown}
-          className="language-toggle"
-          aria-haspopup="listbox"
-          aria-expanded={isDropdownOpen}
-          aria-label={`Select language. Current language: ${currentLang === 'en' ? 'English' : 'Español'}`}
-        >
-          <IconWorld size={20} />
-          <span className="language-text">{currentLang === 'en' ? 'English' : 'Español'}</span>
-        </button>
-        {isDropdownOpen && (
-          <ul className="language-dropdown" role="listbox" aria-label="Language selection">
-            <li
-              role="option"
-              aria-selected={currentLang === 'en'}
-              onClick={() => handleLanguageChange('en')}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  handleLanguageChange('en')
-                }
-              }}
-              tabIndex={0}
-            >
-              English
-            </li>
-            <li
-              role="option"
-              aria-selected={currentLang === 'es'}
-              onClick={() => handleLanguageChange('es')}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  handleLanguageChange('es')
-                }
-              }}
-              tabIndex={0}
-            >
-              Español
-            </li>
-          </ul>
-        )}
+      <div className="controls-container">
+        <ThemeToggle />
+        <div className="language-selector" ref={dropdownRef}>
+          <button
+            onClick={toggleDropdown}
+            onKeyDown={handleKeyDown}
+            className="language-toggle"
+            aria-haspopup="listbox"
+            aria-expanded={isDropdownOpen}
+            aria-label={`Select language. Current language: ${currentLang === 'en' ? 'English' : 'Español'}`}
+          >
+            <IconWorld size={20} />
+            <span className="language-text">{currentLang === 'en' ? 'English' : 'Español'}</span>
+          </button>
+          {isDropdownOpen && (
+            <ul className="language-dropdown" role="listbox" aria-label="Language selection">
+              <li
+                role="option"
+                aria-selected={currentLang === 'en'}
+                onClick={() => handleLanguageChange('en')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleLanguageChange('en')
+                  }
+                }}
+                tabIndex={0}
+              >
+                English
+              </li>
+              <li
+                role="option"
+                aria-selected={currentLang === 'es'}
+                onClick={() => handleLanguageChange('es')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleLanguageChange('es')
+                  }
+                }}
+                tabIndex={0}
+              >
+                Español
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
     </header>
   )
