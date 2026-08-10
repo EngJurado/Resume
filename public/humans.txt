@@ -1,0 +1,12 @@
+/* TEAM */
+Desarrollado por: Carlos Mateo Jurado Díaz
+Contacto: eng.jurado@gmail.com
+LinkedIn: https://www.linkedin.com/in/engjurado/
+GitHub: https://github.com/engjurado
+
+/* SITE */
+Standards: HTML5, CSS3, ES6+
+Framework: Astro 7
+Estilos: Tailwind CSS v4
+Fuente: Inter
+Última actualización: 2026-08-09

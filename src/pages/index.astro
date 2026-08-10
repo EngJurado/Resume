@@ -1,0 +1,37 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Experience from '../components/sections/Experience.astro';
+import Education from '../components/sections/Education.astro';
+import Skills from '../components/sections/Skills.astro';
+import Courses from '../components/sections/Courses.astro';
+import Memberships from '../components/sections/Memberships.astro';
+import Certifications from '../components/sections/Certifications.astro';
+import SEO from '../components/ui/SEO.astro';
+import { canonical, buildJsonLd } from '../utils/seo';
+import { profile } from '../data/profile';
+---
+
+<MainLayout>
+  <SEO
+    title="Carlos"
+    description={profile.bio}
+    canonical={canonical('/')}
+    jsonLd={buildJsonLd('Portfolio', profile.bio)}
+  />
+  <Hero />
+  <div class="space-y-9 max-w-7xl mx-auto px-4 sm:px-6 pb-9">
+    <About withContainer={false} />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-9">
+      <Experience withContainer={false} />
+      <div class="space-y-9">
+        <Education withContainer={false} />
+        <Memberships withContainer={false} />
+      </div>
+    </div>
+    <Skills />
+    <Courses />
+    <Certifications />
+  </div>
+</MainLayout>
