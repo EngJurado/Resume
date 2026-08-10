@@ -1,63 +1,48 @@
-# Fix contrast ratios
+# Fix SEO metadata: Spanish description and remove "Portfolio"
 
-## Problem
-Light-mode text fails WCAG AA on white background:
-- `text-teal-600` → ratio ~3.0:1 (needs 4.5:1)
-- `text-slate-400` → ratio ~2.3:1 (needs 4.5:1)
+## Current state
+- `src/pages/index.astro` passes `title="Carlos"` and `buildJsonLd('Portfolio', profile.bio)`
+- JSON-LD `WebSite.name` is `"Portfolio"` → Google combines it with Person name to show "Carlos Mateo Jurado Díaz - Portfolio"
+- `src/components/ui/SEO.astro` has `fullTitle = title === 'Carlos' ? title : \`${title} | Carlos\``
+- `src/utils/seo.ts` uses the passed `title` for both `ProfilePage.isPartOf.WebSite.name` and `WebSite.name`
+
+## Goal
+1. Remove "Portfolio" from search result title
+2. Ensure description is served in Spanish (already is in code; Google may show cached English translation)
+3. Keep titles clean and descriptive
 
 ## Changes
 
-### Light mode
-Replace the following classes:
+### 1. `src/pages/index.astro`
+- Change `title="Carlos"` → `title="Carlos Mateo Jurado Díaz"`
+- Change `buildJsonLd('Portfolio', profile.bio)` → `buildJsonLd('Carlos Mateo Jurado Díaz', profile.bio)`
 
-| From | To | Ratio |
-|------|----|-------|
-| `text-teal-600` | `text-teal-700` | 4.6:1 |
-| `text-slate-400` | `text-slate-600` | 5.8:1 |
+### 2. `src/components/ui/SEO.astro`
+- Update `fullTitle` logic so it doesn't append `| Carlos` when title is already the full name:
+  ```astro
+  const fullTitle = title === 'Carlos' ? title : `${title} | Carlos`;
+  ```
+  → Since title will now be `'Carlos Mateo Jurado Díaz'`, it will correctly produce `'Carlos Mateo Jurado Díaz | Carlos'`
+  
+  Wait, that's not what we want. We want just `'Carlos Mateo Jurado Díaz'` or a clean Spanish title without redundant "Carlos".
+  
+  Better approach:
+  ```astro
+  const fullTitle = title === 'Carlos Mateo Jurado Díaz' ? title : `${title} | Carlos Mateo Jurado Díaz`;
+  ```
+  Or even simpler, just use the title directly and remove the suffix logic since the homepage is the main site.
 
-### Dark mode
-Keep unchanged — already passes:
-- `dark:text-teal-400` → 8.2:1
-- `dark:text-slate-500` → 5.7:1
+  Actually, simplest: change the condition to match the new title value:
+  ```astro
+  const fullTitle = title === 'Carlos Mateo Jurado Díaz' ? title : `${title} | Carlos Mateo Jurado Díaz`;
+  ```
 
-## Files to edit
-
-1. `src/components/sections/Experience.astro`
-   - Line 18: `text-teal-600` → `text-teal-700`
-   - Line 19: `text-slate-400` → `text-slate-600`
-   - Lines 38-39: same replacements
-
-2. `src/components/sections/Education.astro`
-   - Line 18: `text-teal-600` → `text-teal-700`
-   - Line 19: `text-slate-400` → `text-slate-600`
-   - Lines 47-48: same replacements
-
-3. `src/components/sections/Memberships.astro`
-   - Line 16: `text-teal-600` → `text-teal-700`
-   - Line 17: `text-slate-400` → `text-slate-600`
-   - Lines 32-33: same replacements
-
-4. `src/components/sections/Courses.astro`
-   - Line 13: `text-teal-600` → `text-teal-700`
-   - Line 14: `text-slate-400` → `text-slate-600`
-
-5. `src/components/sections/Certifications.astro`
-   - Line 13: `text-teal-600` → `text-teal-700`
-   - Line 14: `text-slate-400` → `text-slate-600`
-
-6. `src/components/sections/Skills.astro`
-   - Line 12: `text-slate-400` → `text-slate-600`
-
-7. `src/components/layout/Footer.astro`
-   - Line 7: `text-slate-400` → `text-slate-600`
-
-8. `src/components/ui/SocialLinks.astro`
-   - Line 33: `text-slate-400` → `text-slate-600`
-
-9. `src/components/ui/DarkModeToggle.astro`
-   - Line 12: `text-slate-400` → `text-slate-600`
+### 3. `src/utils/seo.ts`
+- No changes needed; it will receive the new title string and use it for JSON-LD WebSite names.
 
 ## Validation
-- Rebuild and run Lighthouse/axe
-- Verify no contrast failures in light mode
-- Confirm dark mode still renders correctly
+1. Rebuild site (`npm run build`)
+2. Check `<title>` and meta description in `dist/index.html`
+3. Verify JSON-LD `WebSite.name` is `"Carlos Mateo Jurado Díaz"` (not "Portfolio")
+4. Use Google Search Console URL Inspection to request re-indexing
+5. Note: Google may still show English description until it re-crawls and stops auto-translating
