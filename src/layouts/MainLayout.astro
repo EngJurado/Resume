@@ -9,6 +9,7 @@ import '../styles/global.css';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="llmstxt" type="text/plain" href="/llms.txt" />
     <style>
       @font-face {
         font-family: 'Inter';
@@ -36,16 +37,6 @@ import '../styles/global.css';
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Carlos" />
     <meta name="twitter:description" content="Portfolio profesional de Carlos Mateo Jurado Díaz" />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Carlos Mateo Jurado Díaz',
-      url: 'https://engjurado.me',
-      sameAs: [
-        'https://www.linkedin.com/in/engjurado/',
-        'https://github.com/engjurado'
-      ]
-    })} />
     <slot name="head" />
     <script is:inline>
       (function() {

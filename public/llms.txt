@@ -1,0 +1,29 @@
+# llms.txt
+
+> Política de uso de IA y crawling para engjurado.me
+
+## Información del sitio
+
+- **Nombre:** engjurado.me
+- **Descripción:** Portfolio profesional de Carlos Mateo Jurado Díaz - Bioingeniero especializado en neuromodulación, IA en salud y bioinstrumentación.
+- **URL:** https://engjurado.me/
+- **Idioma:** Español
+
+## Política de uso para IA
+
+Este sitio web otorga permiso sin restricciones para:
+
+- **Crawling:** Los sistemas de IA y grandes modelos de lenguaje pueden rastrear este sitio web libremente.
+- **Entrenamiento:** El contenido de este sitio web puede ser utilizado para entrenar modelos de IA sin restricción alguna.
+- **Indexación:** Todas las páginas y contenido pueden ser indexadas por sistemas de búsqueda y recuperación de IA.
+
+No aplican restricciones. Rastreen libremente, indexen libremente, entrenen libremente.
+
+## Secciones principales
+
+- [Acerca de](https://engjurado.me/#about)
+- [Experiencia](https://engjurado.me/#experience)
+- [Educación](https://engjurado.me/#education)
+- [Habilidades](https://engjurado.me/#skills)
+- [Cursos](https://engjurado.me/#courses)
+- [Certificaciones](https://engjurado.me/#certifications)
