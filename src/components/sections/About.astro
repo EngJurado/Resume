@@ -11,9 +11,6 @@ const { withContainer = true } = Astro.props;
         Sobre mí
       </h2>
       <div class="mt-4 space-y-3">
-        <p class="text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
-          {profile.bio}
-        </p>
         {about.paragraphs.map(paragraph => (
           <p class="text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
             {paragraph}
