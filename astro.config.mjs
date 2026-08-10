@@ -5,13 +5,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://engjurado.me',
-  base: '/',
   output: 'static',
   build: {
-    format: 'file'
+    format: 'file',
   },
   integrations: [sitemap()],
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });
