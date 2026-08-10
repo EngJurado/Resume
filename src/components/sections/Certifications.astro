@@ -10,8 +10,8 @@ import { certifications } from '../../data/certifications';
     {certifications.map(cert => (
       <div class="group rounded-lg border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 transition-colors hover:border-slate-200 dark:hover:border-slate-700">
         <h3 class="text-sm font-medium text-slate-900 dark:text-white">{cert.name}</h3>
-        <p class="mt-1 text-xs text-teal-600 dark:text-teal-400">{cert.issuer}</p>
-        <p class="mt-1 text-xs text-slate-400 dark:text-slate-500">{cert.year}</p>
+        <p class="mt-1 text-xs text-teal-700 dark:text-teal-400">{cert.issuer}</p>
+        <p class="mt-1 text-xs text-slate-600 dark:text-slate-500">{cert.year}</p>
       </div>
     ))}
   </div>
