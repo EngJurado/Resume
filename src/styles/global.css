@@ -64,6 +64,11 @@
 
 @layer utilities {
   .skip-link {
-    @apply absolute -top-full left-0 bg-teal-600 text-white px-4 py-2 z-50 focus:top-0;
+    @apply absolute -top-full left-0 bg-teal-600 text-white px-4 py-2 z-50;
+  }
+
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    @apply top-0;
   }
 }

@@ -22,8 +22,13 @@ import SocialLinks from '../ui/SocialLinks.astro';
       </div>
       <div class="order-1 lg:order-2 lg:col-span-2 flex items-center justify-center">
         <img
-          src={profile.avatar}
+          src="/images/avatar-304.jpg"
+          srcset="/images/avatar-192.jpg 192w, /images/avatar-256.jpg 256w, /images/avatar-304.jpg 304w"
+          sizes="(max-width: 639px) 192px, (max-width: 1023px) 256px, 304px"
+          width="304"
+          height="304"
           alt="Foto de perfil"
+          fetchpriority="high"
           class="h-48 w-48 sm:h-64 sm:w-64 lg:h-[304px] lg:w-[304px] rounded-full object-cover ring-1 ring-slate-100 dark:ring-slate-800"
         />
       </div>

@@ -16,14 +16,14 @@ const STORAGE_KEY = 'theme';
   <Moon id="moon-icon" size={16} class="hidden" />
 </button>
 
-<script>
+<script is:inline>
   const toggle = document.getElementById('theme-toggle');
   const sunIcon = document.getElementById('sun-icon');
   const moonIcon = document.getElementById('moon-icon');
 
   if (!toggle || !sunIcon || !moonIcon) return;
 
-  const updateUI = (dark: boolean) => {
+  const updateUI = (dark) => {
     toggle.setAttribute('aria-checked', String(dark));
     sunIcon.classList.toggle('hidden', !dark);
     moonIcon.classList.toggle('hidden', dark);
