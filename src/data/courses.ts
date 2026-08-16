@@ -30,12 +30,6 @@ export const courses = [
     hours: '48'
   },
   {
-    name: 'Inteligencia Artificial para Docentes',
-    institution: 'Universidad de Liderazgo Integral (UDEL)',
-    year: '2024',
-    hours: '125'
-  },
-  {
     name: 'Continuing Education Certificate in Leadership',
     institution: 'MIU City University Miami',
     year: '2024',
