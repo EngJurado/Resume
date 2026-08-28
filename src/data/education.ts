@@ -1,6 +1,9 @@
 export const education = [
   {
-    institution: 'Universidad Internacional de La Rioja (UNIR)',
+    institution: {
+      es: 'Universidad Internacional de La Rioja (UNIR)',
+      en: 'International University of La Rioja (UNIR)'
+    },
     degree: {
       es: 'Máster Universitario en Inteligencia Artificial',
       en: 'Official Master\'s in Artificial Intelligence'
@@ -12,7 +15,10 @@ export const education = [
     }
   },
   {
-    institution: 'Universidad de Antioquia (UdeA)',
+    institution: {
+      es: 'Universidad de Antioquia (UdeA)',
+      en: 'University of Antioquia (UdeA)'
+    },
     degree: {
       es: 'Bioingeniería',
       en: 'Bioengineering'
@@ -24,7 +30,10 @@ export const education = [
     }
   },
   {
-    institution: 'Universidad Politécnica de Madrid (UPM)',
+    institution: {
+      es: 'Universidad Politécnica de Madrid (UPM)',
+      en: 'Polytechnic University of Madrid (UPM)'
+    },
     degree: {
       es: 'Intercambio Académico, Tratamiento Digital de Imágenes',
       en: 'Academic Exchange, Digital Image Processing'
@@ -36,7 +45,10 @@ export const education = [
     }
   },
   {
-    institution: 'Universidad Veracruzana',
+    institution: {
+      es: 'Universidad Veracruzana',
+      en: 'Veracruz University'
+    },
     degree: {
       es: 'Intercambio Académico, Ingeniería en Biotecnología',
       en: 'Academic Exchange, Biotechnology Engineering'

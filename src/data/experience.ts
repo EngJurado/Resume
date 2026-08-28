@@ -4,7 +4,10 @@ export const experience = [
       es: 'Soporte Externo – Neuromodulación',
       en: 'External Support – Neuromodulation'
     },
-    organization: 'Medtronic',
+    organization: {
+      es: 'Medtronic',
+      en: 'Medtronic'
+    },
     startDate: '2023-02',
     endDate: {
       es: 'Presente',
@@ -20,7 +23,10 @@ export const experience = [
       es: 'Soporte Externo – ENT',
       en: 'External Support – ENT'
     },
-    organization: 'MediRex',
+    organization: {
+      es: 'MediRex',
+      en: 'MediRex'
+    },
     startDate: '2026-05',
     endDate: {
       es: 'Presente',
@@ -36,7 +42,10 @@ export const experience = [
       es: 'Práctica de Maestría – Análisis de Datos Clínicos',
       en: 'Master\'s Internship – Clinical Data Analysis'
     },
-    organization: 'Universidad Autónoma de Zacatecas (UAZ)',
+    organization: {
+      es: 'Universidad Autónoma de Zacatecas (UAZ)',
+      en: 'Autonomous University of Zacatecas (UAZ)'
+    },
     startDate: '2024-09',
     endDate: '2024-12',
     description: {
@@ -49,7 +58,10 @@ export const experience = [
       es: 'Práctica de Investigación – Bioinstrumentación',
       en: 'Research Internship – Bioinstrumentation'
     },
-    organization: 'Universidad de Antioquia (UdeA)',
+    organization: {
+      es: 'Universidad de Antioquia (UdeA)',
+      en: 'University of Antioquia (UdeA)'
+    },
     startDate: '2021-09',
     endDate: '2022-04',
     description: {
@@ -62,7 +74,10 @@ export const experience = [
       es: 'Monitor de Laboratorio',
       en: 'Lab Teaching Assistant'
     },
-    organization: 'Universidad de Antioquia (UdeA)',
+    organization: {
+      es: 'Universidad de Antioquia (UdeA)',
+      en: 'University of Antioquia (UdeA)'
+    },
     startDate: '2021-11',
     endDate: '2022-03',
     description: {
