@@ -1,16 +1,17 @@
 ---
 import { about } from '../../data/about';
-const { withContainer = true } = Astro.props;
+const { translations, lang = 'es', withContainer = true } = Astro.props;
+const t = translations;
 ---
 
 {withContainer ? (
   <section class="">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <h2 class="text-xl font-medium text-slate-900 dark:text-white sm:text-2xl">
-        Sobre mí
+        {t.sections.about}
       </h2>
       <div class="mt-4 space-y-3">
-        {about.paragraphs.map(paragraph => (
+        {about.paragraphs[lang].map(paragraph => (
           <p class="text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
             {paragraph}
           </p>
@@ -21,10 +22,10 @@ const { withContainer = true } = Astro.props;
 ) : (
   <div>
     <h2 class="text-xl font-medium text-slate-900 dark:text-white sm:text-2xl">
-      Sobre mí
+      {t.sections.about}
     </h2>
     <div class="mt-4 space-y-3">
-      {about.paragraphs.map(paragraph => (
+      {about.paragraphs[lang].map(paragraph => (
         <p class="text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
           {paragraph}
         </p>

@@ -1,6 +1,6 @@
 export const siteUrl = 'https://engjurado.me';
 
-export function buildJsonLd(siteName: string, description: string) {
+export function buildJsonLd(siteName: string, description: string, jobTitle: string) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -8,7 +8,7 @@ export function buildJsonLd(siteName: string, description: string) {
         '@type': 'Person',
         '@id': siteUrl,
         name: 'Carlos Mateo Jurado Díaz',
-        jobTitle: 'Bioingeniero',
+        jobTitle: jobTitle,
         url: siteUrl,
         sameAs: [
           'https://www.linkedin.com/in/engjurado/',

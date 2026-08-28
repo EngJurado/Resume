@@ -1,16 +1,18 @@
 ---
 import { certifications } from '../../data/certifications';
+const { translations, lang = 'es' } = Astro.props;
+const t = translations;
 ---
 
 <div>
   <h2 class="text-xl font-medium text-slate-900 dark:text-white sm:text-2xl">
-    Certificaciones
+    {t.sections.certifications}
   </h2>
   <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
     {certifications.map(cert => (
       <div class="group rounded-lg border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 transition-colors hover:border-slate-200 dark:hover:border-slate-700">
-        <h3 class="text-sm font-medium text-slate-900 dark:text-white">{cert.name}</h3>
-        <p class="mt-1 text-xs text-teal-700 dark:text-teal-400">{cert.issuer}</p>
+         <h3 class="text-sm font-medium text-slate-900 dark:text-white">{typeof cert.name === 'string' ? cert.name : cert.name[lang]}</h3>
+         <p class="mt-1 text-xs text-teal-700 dark:text-teal-400">{typeof cert.issuer === 'string' ? cert.issuer : cert.issuer[lang]}</p>
         <p class="mt-1 text-xs text-slate-600 dark:text-slate-500">{cert.year}</p>
       </div>
     ))}

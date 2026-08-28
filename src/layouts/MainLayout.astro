@@ -1,10 +1,13 @@
 ---
 import SkipLink from '../components/layout/SkipLink.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
 import '../styles/global.css';
+const { translations, lang, children } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang={translations.htmlLang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,14 +32,14 @@ import '../styles/global.css';
       }
     </style>
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Portfolio profesional de Carlos Mateo Jurado Díaz - Bioingeniero especializado en neuromodulación, IA en salud y bioinstrumentación." />
-    <meta property="og:title" content="Carlos" />
-    <meta property="og:description" content="Portfolio profesional de Carlos Mateo Jurado Díaz" />
+    <meta name="description" content={translations.seo.description} />
+    <meta property="og:title" content={translations.siteName} />
+    <meta property="og:description" content={translations.seo.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://engjurado.me/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Carlos" />
-    <meta name="twitter:description" content="Portfolio profesional de Carlos Mateo Jurado Díaz" />
+    <meta name="twitter:title" content={translations.siteName} />
+    <meta name="twitter:description" content={translations.seo.description} />
     <slot name="head" />
     <script is:inline>
       (function() {
@@ -50,9 +53,11 @@ import '../styles/global.css';
     </script>
   </head>
   <body class="min-h-screen flex flex-col antialiased bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-    <SkipLink />
+    <SkipLink text={translations.nav.skipToContent} />
+    <Header translations={translations} lang={lang} />
     <main id="main">
       <slot />
     </main>
+    <Footer translations={translations} />
   </body>
 </html>

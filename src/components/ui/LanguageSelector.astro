@@ -1,0 +1,45 @@
+---
+const { translations, currentLang } = Astro.props;
+const t = translations;
+const otherLang = currentLang === 'es' ? 'en' : 'es';
+const otherPath = currentLang === 'es' ? '/en/' : '/es/';
+---
+
+<div class="flex items-center gap-1">
+  <span class="text-xs text-slate-500 dark:text-slate-400 mr-1">{t.nav.language}:</span>
+  {currentLang === 'es' ? (
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-slate-900 text-white dark:bg-white dark:text-slate-900">ES</span>
+  ) : (
+    <button
+      onclick="window.location.href='/es/'"
+      class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 transition-colors"
+      aria-label="Cambiar a español"
+    >
+      ES
+    </button>
+  )}
+  <span class="text-xs text-slate-300 dark:text-slate-700 mx-0.5">/</span>
+  {currentLang === 'en' ? (
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-slate-900 text-white dark:bg-white dark:text-slate-900">EN</span>
+  ) : (
+    <button
+      onclick="window.location.href='/en/'"
+      class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800 transition-colors"
+      aria-label="Switch to English"
+    >
+      EN
+    </button>
+  )}
+</div>
+
+<script is:inline>
+  (function() {
+    const stored = localStorage.getItem('lang');
+    if (stored === 'es' || stored === 'en') {
+      return;
+    }
+    const langs = navigator.languages || [navigator.language];
+    const prefersSpanish = langs.some(l => l.startsWith('es'));
+    localStorage.setItem('lang', prefersSpanish ? 'es' : 'en');
+  })();
+</script>

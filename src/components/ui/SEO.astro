@@ -4,16 +4,22 @@ const {
   description = 'Portfolio profesional',
   canonical,
   ogImage,
-  jsonLd
+  jsonLd,
+  hreflang = []
 } = Astro.props;
 
-const siteUrl = 'https://[TU-USUARIO].github.io/[NOMBRE-REPOSITORIO]';
-const fullTitle = title === 'Carlos Mateo Jurado Díaz' ? title : `${title} | Carlos Mateo Jurado Díaz`;
+const siteUrl = 'https://engjurado.me';
+const siteName = 'Carlos Mateo Jurado Díaz';
+const fullTitle = title === siteName ? title : `${siteName} | ${title}`;
 ---
 
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 {canonical && <link rel="canonical" href={canonical} />}
+
+{hreflang.map(({ lang: locale, href }) => (
+  <link rel="alternate" hreflang={locale} href={href} />
+))}
 
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />

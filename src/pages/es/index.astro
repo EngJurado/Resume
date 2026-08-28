@@ -1,0 +1,46 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import About from '../../components/sections/About.astro';
+import Experience from '../../components/sections/Experience.astro';
+import Education from '../../components/sections/Education.astro';
+import Skills from '../../components/sections/Skills.astro';
+import Courses from '../../components/sections/Courses.astro';
+import Memberships from '../../components/sections/Memberships.astro';
+import Certifications from '../../components/sections/Certifications.astro';
+import SEO from '../../components/ui/SEO.astro';
+import { canonical, buildJsonLd } from '../../utils/seo';
+import { profile } from '../../data/profile';
+import es from '../../i18n/es';
+
+const t = es;
+---
+
+<MainLayout translations={t} lang="es">
+  <SEO
+    slot="head"
+    title={t.seo.title}
+    description={t.seo.description}
+    canonical={canonical('/es/')}
+    jsonLd={buildJsonLd('engjurado', profile.bio.es, 'Bioingeniero')}
+    hreflang={[
+      { lang: 'es', href: 'https://engjurado.me/es/' },
+      { lang: 'en', href: 'https://engjurado.me/en/' },
+      { lang: 'x-default', href: 'https://engjurado.me/' }
+    ]}
+  />
+  <Hero translations={t} lang="es" />
+  <div class="space-y-9 max-w-7xl mx-auto px-4 sm:px-6 pb-9">
+    <About withContainer={false} translations={t} lang="es" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-9">
+      <Experience withContainer={false} translations={t} lang="es" />
+      <div class="space-y-9">
+        <Education withContainer={false} translations={t} lang="es" />
+        <Memberships withContainer={false} translations={t} lang="es" />
+      </div>
+    </div>
+    <Skills translations={t} lang="es" />
+    <Courses translations={t} lang="es" />
+    <Certifications translations={t} lang="es" />
+  </div>
+</MainLayout>

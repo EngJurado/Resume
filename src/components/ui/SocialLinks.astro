@@ -1,22 +1,24 @@
 ---
+const { translations } = Astro.props;
+const t = translations;
 const socialLinks = [
   {
-    name: 'Email',
+    nameKey: 'email',
     url: 'mailto:eng.jurado@gmail.com',
     icon: 'mail'
   },
   {
-    name: 'LinkedIn',
+    nameKey: 'linkedin',
     url: 'https://linkedin.com/in/engjurado',
     icon: 'linkedin'
   },
   {
-    name: 'GitHub',
+    nameKey: 'github',
     url: 'https://github.com/engjurado',
     icon: 'github'
   },
   {
-    name: 'WhatsApp',
+    nameKey: 'whatsapp',
     url: 'https://wa.me/@engjurado',
     icon: 'whatsapp'
   }
@@ -29,10 +31,10 @@ const socialLinks = [
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={link.name}
+      aria-label={t.social[link.nameKey as keyof typeof t.social]}
       class="text-slate-600 hover:text-slate-700 dark:text-slate-500 dark:hover:text-slate-200 transition-colors"
     >
-      <span class="sr-only">{link.name}</span>
+      <span class="sr-only">{t.social[link.nameKey as keyof typeof t.social]}</span>
       <svg
         class="h-5 w-5"
         viewBox="0 0 24 24"
