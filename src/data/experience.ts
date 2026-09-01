@@ -47,7 +47,10 @@ export const experience = [
       en: 'Autonomous University of Zacatecas (UAZ)'
     },
     startDate: '2024-09',
-    endDate: '2024-12',
+    endDate: {
+      es: '2024-12',
+      en: '2024-12'
+    },
     description: {
       es: 'Desarrollé una aplicación web para el análisis de datos clínicos utilizando Flask, HTML, CSS, JavaScript y SQLite. Implementé pipelines de limpieza y preparación de datos con Pandas y NumPy, aplicando técnicas estadísticas para el tratamiento de valores nulos, detección de outliers y normalización de datasets. Desarrollé modelos de Machine Learning con Scikit-learn y visualizaciones estadísticas con Seaborn para identificar patrones en datos relacionados con trastornos de salud mental, y automaticé la generación de reportes de resultados en PDF para apoyar a equipos de investigación.',
       en: 'I developed a web application for clinical data analysis using Flask, HTML, CSS, JavaScript, and SQLite. I implemented data cleaning and preparation pipelines with Pandas and NumPy, applying statistical techniques for handling null values, outlier detection, and dataset normalization. I developed Machine Learning models with Scikit-learn and statistical visualizations with Seaborn to identify patterns in mental health-related data, and automated PDF report generation to support research teams.'
@@ -63,7 +66,10 @@ export const experience = [
       en: 'University of Antioquia (UdeA)'
     },
     startDate: '2021-09',
-    endDate: '2022-04',
+    endDate: {
+      es: '2022-04',
+      en: '2022-04'
+    },
     description: {
       es: 'Desarrollé sistemas embebidos para la adquisición en tiempo real de bioseñales mediante microcontroladores DFRobot Beetle ESP32 v2.0, utilizando C++/Arduino. Diseñé e integré la cadena de adquisición y procesamiento de señales sEMG, incluyendo circuitos de acondicionamiento y conversión analógico-digital (ADC), optimizando la arquitectura del sistema para su integración en dispositivos médicos.',
       en: 'I developed embedded systems for real-time biosignal acquisition using DFRobot Beetle ESP32 v2.0 microcontrollers, with C++/Arduino. I designed and integrated the sEMG signal acquisition and processing chain, including conditioning circuits and analog-to-digital conversion (ADC), optimizing the system architecture for integration into medical devices.'
@@ -79,7 +85,10 @@ export const experience = [
       en: 'University of Antioquia (UdeA)'
     },
     startDate: '2021-11',
-    endDate: '2022-03',
+    endDate: {
+      es: '2022-03',
+      en: '2022-03'
+    },
     description: {
       es: 'Brindé soporte técnico y académico en las prácticas de Circuitos, Electrónica Analógica y Electrónica Digital. Realicé la verificación funcional de equipos de laboratorio, incluyendo multímetros y fuentes de alimentación, gestioné el inventario y asignación de componentes electrónicos y herramientas de medición, y asesoré a estudiantes en la configuración de equipos y especificaciones de componentes durante las sesiones prácticas.',
       en: 'I provided technical and academic support in Circuits, Analog Electronics, and Digital Electronics labs. I performed functional verification of lab equipment, including multimeters and power supplies, managed inventory and assignment of electronic components and measurement tools, and advised students on equipment configuration and component specifications during practical sessions.'
